@@ -1,0 +1,63 @@
+# Python
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache
+.mypy_cache
+.coverage
+htmlcov
+dist
+build
+*.egg-info
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Entorno
+.env
+.venv
+venv
+env
+ENV
+env.bak
+venv.bak
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploads
+uploads/*
+!uploads/.gitkeep
+
+# Node (si hay)
+node_modules
+npm-debug.log
+
+# Archivos temporales
+tmp
+temp
+*.tmp
+*.bak
+
+# Docker
+.dockerignore
+Dockerfile
+docker-compose.yml
+.docker

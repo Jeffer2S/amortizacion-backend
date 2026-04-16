@@ -15,9 +15,24 @@ app = FastAPI(
 )
 
 # ── CORS ──────────────────────────────────────────────────────────
+# CORS dinámico según el entorno
+cors_origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost:8080",
+    "http://127.0.0.1:8080",
+]
+
+# En producción, agrega tus dominios
+if settings.environment == "production":
+    cors_origins.extend([
+        "https://tu-frontend.com",  # ← Reemplaza con tu dominio real
+        "https://www.tu-frontend.com",
+    ])
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

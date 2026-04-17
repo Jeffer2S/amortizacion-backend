@@ -5,6 +5,8 @@ from fastapi.staticfiles import StaticFiles
 
 from app.config import settings
 from app.routers import auth, institution, credits, amortization, investments
+from app.database import engine
+from app.models import Base
 
 app = FastAPI(
     title="Simulador de Amortización e Inversiones",
@@ -13,6 +15,10 @@ app = FastAPI(
     docs_url="/api/docs",
     redoc_url="/api/redoc",
 )
+
+# ── CREAR TABLAS AL INICIAR ───────────────────────────────────────
+# Esto asegura que todas las tablas existan
+Base.metadata.create_all(bind=engine)
 
 # ── CORS ──────────────────────────────────────────────────────────
 # CORS dinámico según el entorno
